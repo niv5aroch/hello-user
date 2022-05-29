@@ -1,0 +1,161 @@
+@startuml
+class com.example.hellouser.UpdateActivity {
+~ ImageView imgv
+~ ListView thelistv
+~ ArrayAdapter<String> arrayAdapter
+~ Intent data
+~ Intent menuIntent
+~ String isadmin
+~ String[] mess
+~ SQLiteDatabase db
+~ DBHelper dbHelper
+- {static} int REQUEST_ID_MULTIPLE_PERMISSIONS
+~ String sms
+~ String num
+~ Cursor c
+# void onCreate(Bundle)
++ void hehe(View)
++ void camera(View)
+- void chooseImage(Context)
++ {static} boolean checkAndRequestPermissions(Activity)
++ void onItemClick(AdapterView<?>,View,int,long)
++ void onRequestPermissionsResult(int,String[],int[])
+# void onActivityResult(int,int,Intent)
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
+}
+class com.example.hellouser.NetworkChangeReceiver {
++ void onReceive(Context,Intent)
+- boolean isOnline(Context)
+}
+class com.example.hellouser.HomeActivity {
+~ Intent take
+~ TextView tvname
+~ String isadmin
+- BroadcastReceiver mNetworkReceiver
+~ {static} TextView tv_check_connection
+~ NetworkChangeReceiver networkChangeReceiver
+~ String name
+# void onCreate(Bundle)
++ {static} void dialog(boolean)
+- void registerNetworkBroadcastForNougat()
++ void fortoday(View)
++ void update(View)
++ void map(View)
+# void unregisterNetworkChanges()
++ void onDestroy()
+}
+class com.example.hellouser.FortodayActivity {
+~ DBHelper dbHelper
+~ SQLiteDatabase db
+~ Cursor cursor
+~ String str1
+~ Button btnCreate
+~ ArrayList<String> list
+~ ListView viewlist
+~ ArrayAdapter<String> arrayAdapter
+~ Intent intent
+~ Intent menuIntent
+~ String isadmin
+# void onCreate(Bundle)
+# void onStart()
++ void create(View)
++ void onItemClick(AdapterView<?>,View,int,long)
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
++ void remove(View)
+}
+class com.example.hellouser.DBHelper {
++ {static} String DB_FILE
++ {static} String USERS_TABLE
++ {static} String USER_ID
++ {static} String USER_PASS
++ {static} String USER_PHONE
++ {static} String USER_NAME
++ {static} String USER_USER
++ {static} String USERS_ADDTABLE
++ {static} String USER_ADDRESS
++ {static} String USER_CHECKED
++ void onCreate(SQLiteDatabase)
++ void onUpgrade(SQLiteDatabase,int,int)
+}
+class com.example.hellouser.MainActivity {
+~ EditText id
+~ EditText pass
+~ TextView tvvv
+~ DBHelper dbHelper
+~ SQLiteDatabase db
+~ Cursor cursor
+~ ContentValues contentValues
+~ String[] userInfo
+# void onCreate(Bundle)
++ void register(View)
++ void done(View)
+}
+class com.example.hellouser.CreateActivity {
+~ EditText street
+~ EditText country
+~ String[] userInfo
+~ EditText city
+~ EditText name
+~ EditText number
+~ ContentValues contentValues
+~ DBHelper dbHelper
+~ SQLiteDatabase db
+# void onCreate(Bundle)
++ void go(View)
++ boolean onCreateOptionsMenu(Menu)
+}
+class com.example.hellouser.MapActivity {
+~ Intent menuIntent
+~ String isadmin
+# void onCreate(Bundle)
++ void bye(View)
++ boolean onCreateOptionsMenu(Menu)
++ boolean onOptionsItemSelected(MenuItem)
+}
+class com.example.hellouser.RegisterActivity {
+~ String[] userInfo
+~ DBHelper dbHelper
+~ SQLiteDatabase db
+~ ContentValues contentValues
+~ EditText phone
+~ EditText name
+~ EditText pass
+~ EditText id
+~ RadioGroup rg
+~ Button reg
+~ RadioButton rb
+# void onCreate(Bundle)
++ void onClick(View)
++ boolean chackedemail(String)
++ void register(View)
++ void onCheckedChanged(RadioGroup,int)
+}
+class com.example.hellouser.Users {
+- String email
+- String password
+- boolean isAdmin
++ boolean isIsadmin()
++ void setIsadmin(boolean)
++ String getEmail()
++ void setEmail(String)
++ String getPassword()
++ void setPassword(String)
++ String toString()
+}
+
+
+com.example.hellouser.OnItemClickListener <|.. com.example.hellouser.UpdateActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hellouser.UpdateActivity
+android.content.BroadcastReceiver <|-- com.example.hellouser.NetworkChangeReceiver
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hellouser.HomeActivity
+com.example.hellouser.OnItemClickListener <|.. com.example.hellouser.FortodayActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hellouser.FortodayActivity
+android.database.sqlite.SQLiteOpenHelper <|-- com.example.hellouser.DBHelper
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hellouser.MainActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hellouser.CreateActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hellouser.MapActivity
+com.example.hellouser.OnCheckedChangeListener <|.. com.example.hellouser.RegisterActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.hellouser.RegisterActivity
+@enduml

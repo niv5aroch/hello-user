@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/drawable"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="124dp"
+        android:layout_height="81dp"
+        android:src="@drawable/helloo"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="ID              "
+        android:textSize="50dp"
+        android:id="@+id/id"
+        android:background="@drawable/heheheha"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="password"
+        android:background="@drawable/heheheha"
+        android:textSize="50dp"
+        android:id="@+id/pass"
+        android:inputType="textPassword"
+        />
+
+    <Button
+        android:backgroundTint="@drawable/btn"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="register"
+        android:textSize="30dp"
+        android:onClick="register"
+        />
+
+    <Button
+        android:backgroundTint="@drawable/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="done"
+        android:text="done"
+        android:textSize="30dp" />
+   //TextView
+      //  android:layout_width="match_parent"
+      //  android:layout_height="wrap_content"
+     //   android:gravity="center"
+       // android:text="שלום שליח"
+        android:textSize="50dp" />
+
+
+</LinearLayout>
